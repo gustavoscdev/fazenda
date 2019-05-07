@@ -18,9 +18,9 @@ class CreateTables extends Migration
                 $table->bigIncrements('id');
                 $table->string('nom_usuario',255);
                 $table->dateTime('dt_alteracao');
-                $table->integer('usuario_id_alteracao');
+                $table->bigInt('usuario_id_alteracao');
                 $table->dateTime('dt_criacao');
-                $table->integer('usuario_id_criacao');
+                $table->bigInt('usuario_id_criacao');
                 $table->string('ind_situacao',1);
                 
                 $table->foreign('usuario_id_alteracao')
