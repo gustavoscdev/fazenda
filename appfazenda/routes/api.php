@@ -13,7 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/teste', 'show@TesteController');
+Route::get('/teste',function () {
+ dd('ldahuduha');
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
