@@ -13,9 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/teste',function () {
- dd('ldahuduha');
-});
+Route::get('/usuario','Usuario\UsuarioController@index');
+Route::resource('/fazenda','Fazenda\FazendaController');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
