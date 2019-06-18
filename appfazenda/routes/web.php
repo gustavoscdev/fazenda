@@ -1,5 +1,8 @@
 <?php
 
+//use Illuminate\Routing\Route;
+use App\Http\Controllers\Fazenda\FazendaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +17,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/fazendas', function () {
+    $f = new FazendaController();
+    $obj = array('dados' => $f->index());
+    return view('fazenda.fazendas',$obj);
+});
+
+Route::get('/fazenda/{id}', 'Fazenda\FazendaController@showV');
+Route::get('/dispositivos/{id}', 'Dispositivo\DispositivoController@index');

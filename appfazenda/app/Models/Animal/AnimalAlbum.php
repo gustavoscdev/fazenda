@@ -2,9 +2,10 @@
 
 namespace App\Models\Animal;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Models\Modelfa;
 
-class AnimalAlbum extends Model
+
+class AnimalAlbum extends Modelfa
 {
     protected $table      = 'fa_animal_album';
     protected $primaryKey = 'id';

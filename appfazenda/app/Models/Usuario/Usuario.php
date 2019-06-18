@@ -13,4 +13,9 @@ class Usuario extends Model {
     // protected $hidden     = ['negocio_id','cliente_id','acao_tp_id','acao_id_pai','acao_id_ori','usuario_id_criacao','usuario_id_alteracao','usuario_id_realizado','usuario_id_checkin','usuario_id_checkout','usuario_id_audit','instalacao_id'];
     //protected $appends = ['descricao_text'];
 
+    public function usuarioFazenda()
+    {
+        return $this->hasMany(UsuarioFazenda::class, 'usuario_id', 'usuario_id');
+    }
+
 }

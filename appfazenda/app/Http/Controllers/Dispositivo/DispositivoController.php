@@ -1,45 +1,45 @@
 <?php
 
-namespace App\Http\Controllers\Fazenda;
+namespace App\Http\Controllers\Dispositivo;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\Fazenda\FazendaRepository;
+use App\Repositories\Dispositivo\DispositivoRepository;
 
-class FazendaController extends Controller
+
+class DispositivoController extends Controller
 {  
     private $repository;
 
     public function __construct()
     {
-        $this->repository = new FazendaRepository;
+        $this->repository = new DispositivoRepository;
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request = null)
+    public function index($id)
     {   
+        
         $perPage = false;     
-        if($request){
-            $perPage = (int) $request->input('per_page');        
-        }
 
         if(!$perPage){
             $perPage = 10;
         }
-        return $this->repository->listarFazendas($perPage, $request);
+        $obj = array('dados' => $this->repository->listarDispositivos($perPage, $id));
+
+        return view('dispositivo.dispositivos',$obj);
     }
     public function show(Request $request, int $id)
     {   
-        return $this->repository->showFazenda($id);
+        
     }
     
     public function showV(Request $request, int $id)
     {   
-        $obj = array('dado' =>  $this->repository->showFazenda($id));        
-        return view('fazenda.fazenda',$obj);
+        
     }
 
     /**

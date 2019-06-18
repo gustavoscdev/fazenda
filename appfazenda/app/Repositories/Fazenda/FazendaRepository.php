@@ -9,7 +9,12 @@ use App\Models\Fazenda\Fazenda;
 class FazendaRepository extends Fazenda
 { 
     public function listarFazendas(int $qtdItens = 15, Request $request = NULL){
-        $usuarios = new Fazenda();
-        return $usuarios->get();       
+        $fazendas = new Fazenda();
+        return $fazendas->get();       
+    }
+
+    public function showFazenda($id){
+        $fazenda = new Fazenda();        
+        return $fazenda->find($id);
     }
 }
