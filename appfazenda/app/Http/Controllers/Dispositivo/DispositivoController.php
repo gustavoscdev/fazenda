@@ -21,8 +21,7 @@ class DispositivoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($id)
-    {   
-        
+    {           
         $perPage = false;     
 
         if(!$perPage){
@@ -32,9 +31,11 @@ class DispositivoController extends Controller
 
         return view('dispositivo.dispositivos',$obj);
     }
-    public function show(Request $request, int $id)
-    {   
+    public function show(int $id)
+    {           
         
+        $obj = array('dado' => $this->repository->showDispositivo($id));
+        return view('dispositivo.dispositivo',$obj);
     }
     
     public function showV(Request $request, int $id)

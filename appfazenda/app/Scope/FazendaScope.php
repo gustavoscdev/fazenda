@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Scopes;
+namespace App\Scope;
 
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +17,6 @@ class FazendaScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('fazenda_id', '=', 1);
+        $builder->where('fazenda_id', '=', '1');
     }
 }

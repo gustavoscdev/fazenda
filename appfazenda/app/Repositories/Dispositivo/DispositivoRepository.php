@@ -8,11 +8,12 @@ use App\Models\Dispositivo\Dispositivo;
 class DispositivoRepository extends Dispositivo
 { 
     public function listarDispositivos(int $qtdItens = 15,$id){
+        
         $dispositivo = new Dispositivo();
-        return $dispositivo->where('fazenda_id',$id)->get();       
+        return $dispositivo->get();       
     }
 
-    public function showDispositivo($id){
+    public function showDispositivo($id){        
         $dispositivo = new Dispositivo();        
         return $dispositivo->find($id);
     }

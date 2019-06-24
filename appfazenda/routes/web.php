@@ -25,3 +25,4 @@ Route::get('/fazendas', function () {
 
 Route::get('/fazenda/{id}', 'Fazenda\FazendaController@showV');
 Route::get('/dispositivos/{id}', 'Dispositivo\DispositivoController@index');
+Route::get('/dispositivo/{id}', 'Dispositivo\DispositivoController@show');

@@ -22,12 +22,12 @@
                     @foreach ($dados as $dado)
                     <tr>
                     <td>
-                        <a href="{{ url('/fazenda/' . $dado->id)}}" style="text-decoration:none;" >
+                        <a href="{{ url('/dispositivo/' . $dado->id)}}" style="text-decoration:none;" >
                         {{$dado->nom_dispositivo}} 
                         </a>
                     </td>
                     <td>
-                        <a href="{{ url('/fazenda/' . $dado->id)}}" style="text-decoration:none;" >
+                        <a href="{{ url('/dispositivo/' . $dado->id)}}" style="text-decoration:none;" >
                         @if(!empty($dado->des_dispositivo))
                             {{$dado->des_dispositivo}}
                         @else
@@ -36,12 +36,12 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{ url('/fazenda/' . $dado->id)}}" style="text-decoration:none;" >
+                        <a href="{{ url('/dispositivo/' . $dado->id)}}" style="text-decoration:none;" >
                         {{$dado->num_latitude}} 
                         </a>
                     </td>
                     <td>
-                        <a href="{{ url('/fazenda/' . $dado->id)}}" style="text-decoration:none;" >
+                        <a href="{{ url('/dispositivo/' . $dado->id)}}" style="text-decoration:none;" >
                         {{$dado->num_longitude}} 
                         </a>
                     </td>

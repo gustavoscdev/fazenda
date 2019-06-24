@@ -15,7 +15,7 @@ use App\Traits\SoftDeletes as SoftDeletes;
 
 class Model extends ModelOri
 {
-    use Compoships;
+    //use Compoships;
     
     
 }
