@@ -10,7 +10,7 @@ class FazendaRepository extends Fazenda
 { 
     public function listarFazendas(int $qtdItens = 15, Request $request = NULL){
         $fazendas = new Fazenda();
-        return $fazendas->get();       
+        return $fazendas->get();
     }
 
     public function showFazenda($id){

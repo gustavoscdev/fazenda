@@ -42,6 +42,13 @@ class DispositivoController extends Controller
     {   
         
     }
+    
+    public function getDispositivos()
+    {   
+        return $this->repository->getRfids();
+        return view('dispositivo.dispositivos',$obj);
+    }
+    
 
     /**
      * Store a newly created resource in storage.

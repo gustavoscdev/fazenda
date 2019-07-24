@@ -1,7 +1,7 @@
 <?php
 
 //use Illuminate\Routing\Route;
-use App\Http\Controllers\Fazenda\FazendaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +14,18 @@ use App\Http\Controllers\Fazenda\FazendaController;
 |
 */
 
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/fazendas', function () {
-    $f = new FazendaController();
-    $obj = array('dados' => $f->index());
-    return view('fazenda.fazendas',$obj);
-});
 
+Route::get('/fazendas','Fazenda\FazendaController@index');
 Route::get('/fazenda/{id}', 'Fazenda\FazendaController@showV');
 Route::get('/dispositivos/{id}', 'Dispositivo\DispositivoController@index');
 Route::get('/dispositivo/{id}', 'Dispositivo\DispositivoController@show');
+
+
+Route::get('/login','Controller@FazerLogin');

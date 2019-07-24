@@ -20,7 +20,13 @@ class FazendaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request = null)
-    {   
+    { 
+        
+        // $f = new FazendaController();
+        // $f->index();
+        // $obj = ['dados' => $f->index()];
+        // return view('fazenda.fazendas',$obj);
+
         $perPage = false;     
         if($request){
             $perPage = (int) $request->input('per_page');        
@@ -29,7 +35,9 @@ class FazendaController extends Controller
         if(!$perPage){
             $perPage = 10;
         }
-        return $this->repository->listarFazendas($perPage, $request);
+        $obj = $this->repository->listarFazendas($perPage, $request);
+
+        return view('fazenda.fazendas',['dados' => $obj]);
     }
     public function show(Request $request, int $id)
     {   
