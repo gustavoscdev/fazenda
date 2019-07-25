@@ -1,13 +1,15 @@
 <?php
 namespace App\Repositories\Dispositivo;
 
-use Illuminate\Http\Request;
+use App\Services\ApiService;
 
+
+use Illuminate\Http\Request;
 use App\Models\Dispositivo\Dispositivo;
 
 class DispositivoRepository extends Dispositivo
 { 
-    public function listarDispositivos(int $qtdItens = 15,$id){
+    public function listarDispositivos(int $qtdItens = 15){
         
         $dispositivo = new Dispositivo();
         return $dispositivo->get();       
@@ -18,21 +20,21 @@ class DispositivoRepository extends Dispositivo
         return $dispositivo->find($id);
     }
 
-    public function getRfids(){
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
+    public function salvarDispositivo($disp){
         
-        echo $response->getStatusCode(); # 200
-        echo $response->getHeaderLine('content-type'); # 'application/json; charset=utf8'
-        echo $response->getBody(); # '{"id": 1420053, "name": "guzzle", ...}'
+        $dispNovo = new Dispositivo();
+
+        $dispNovo->cod_dispositivo      = $disp['cod_dispositivo'];
+        $dispNovo->nom_dispositivo      = $disp['nom_dispositivo'];
+        $dispNovo->des_dispositivo      = $disp['des_dispositivo'];
+        $dispNovo->fazenda_id           = 1;
+        $dispNovo->usuario_id_criacao   = 1;
         
-        # Send an asynchronous request.
-        $request = new \GuzzleHttp\Psr7\Request('GET', 'http://httpbin.org');
-        $promise = $client->sendAsync($request)->then(function ($response) {
-            echo 'I completed! ' . $response->getBody();
-        });
-        
-        $promise->wait();
+        return $dispNovo->save();
+
+
     }
+
+    
     
 }

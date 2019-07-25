@@ -16,8 +16,8 @@
         <div>logitude: {{$dado->num_longitude}}</div>
 
         <div>
-            <a href="{{ url('/localizar/' . $dado->id)}}" style="text-decoration:none;" >
-        Animais proximos
+            <a href="{{ url('/procurar')}}" style="text-decoration:none;" >
+            Animais proximos
         </a>
         </div>
  

@@ -32,8 +32,7 @@ class DispositivoController extends Controller
         return view('dispositivo.dispositivos',$obj);
     }
     public function show(int $id)
-    {           
-        
+    {
         $obj = array('dado' => $this->repository->showDispositivo($id));
         return view('dispositivo.dispositivo',$obj);
     }
@@ -56,8 +55,17 @@ class DispositivoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function salvar(Request $request)
     {
+        $control = $this->repository->salvarDispositivo($request->all());
+        if($control) {            
+            $disp = $this->repository->listarDispositivos();
+            $dado = array('dados' => $disp);
+            return view('dispositivo.dispositivos',$dado);
+        }else {
+            $obj = array('dado' =>  $this->repository->showFazenda(1));
+            return view('fazenda.fazenda',$obj);
+        }
         
     }
 

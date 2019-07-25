@@ -11,6 +11,10 @@ class VerifyCsrfToken extends Middleware
      *
      * @var bool
      */
+    protected $except = [
+        'dispositivo'
+    ];
+
     protected $addHttpCookie = true;
 
     /**
@@ -18,7 +22,5 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array
      */
-    protected $except = [
-        //
-    ];
+    
 }

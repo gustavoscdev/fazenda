@@ -11,9 +11,10 @@ use App\Scope\FazendaScope;
 
 class Modelfa extends Model
 {
+    public $timestamps = false;
+    //use Compoships;    
     
-    //use Compoships;
-     
+
     protected static function boot(){
         parent::boot();
         static::addGlobalScope(new FazendaScope);

@@ -18,7 +18,7 @@
                 <a href="{{ url('/dispositivos/' . $dado->id)}}">Dipositivos</a>
             </div>   
             <div>
-                <a href="{{ url('/dispositivos/' . $dado->id)}}">Animais</a>
+                <a href="{{ url('/animal')}}">Animais</a>
             </div>              
             
         </body>
