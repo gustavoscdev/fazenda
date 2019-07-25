@@ -31,16 +31,19 @@ class DispositivoController extends Controller
 
         return view('dispositivo.dispositivos',$obj);
     }
+
+    public function all(){
+        return $this->repository->listarTodos();
+    }
+
+    
     public function show(int $id)
     {
         $obj = array('dado' => $this->repository->showDispositivo($id));
         return view('dispositivo.dispositivo',$obj);
     }
     
-    public function showV(Request $request, int $id)
-    {   
-        
-    }
+ 
     
     public function getDispositivos()
     {   

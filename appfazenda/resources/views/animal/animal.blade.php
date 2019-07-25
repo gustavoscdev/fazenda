@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="col-xs-12" style="text-align:center">
-            <h3>Dispositivo</h3>
+            <h3>Animal</h3>
         </div>
         <div>Nome: {{$dado->nom_animal}}</div>
         <div>Etiqueta: {{$dado->rf_id}}</div>

@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::get('/fazendas','Fazenda\FazendaController@index');
 Route::get('/fazenda/{id}', 'Fazenda\FazendaController@showV');
 Route::get('/dispositivos/{id}', 'Dispositivo\DispositivoController@index');
+Route::get('/dispositivos', 'Dispositivo\DispositivoController@all');
 Route::get('/dispositivo/{id}', 'Dispositivo\DispositivoController@show');
 Route::get('/procurar', 'Animal\AnimalController@procurar');
 Route::post('/animal', 'Animal\AnimalController@salvar');

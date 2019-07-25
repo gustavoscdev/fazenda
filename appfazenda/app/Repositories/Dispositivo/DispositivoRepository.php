@@ -31,8 +31,10 @@ class DispositivoRepository extends Dispositivo
         $dispNovo->usuario_id_criacao   = 1;
         
         return $dispNovo->save();
+    }
 
-
+    public function listarTodos(){
+        return Dispositivo::with('ativadores')->get();
     }
 
     
