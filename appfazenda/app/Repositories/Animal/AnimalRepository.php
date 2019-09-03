@@ -47,14 +47,11 @@ class AnimalRepository extends Animal
         $client = new ApiService();       
         $response = $client->_get('http://192.168.100.9/getIds');
         $codDisp = $response->json;
-        $codDisp = 'UID: D2 2A 72 1B';
 
-        if($codDisp == null) {
-            return false;
-        }
- 
+        if($codDisp == '')
+            return view('animal.animais',array('dados' => []));
+
         $disp = Animal::where('rf_id',$codDisp)->get();
-
         if(count($disp) == 0) {
              $disp = new Animal();
 
